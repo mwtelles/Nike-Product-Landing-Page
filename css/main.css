@@ -80,7 +80,7 @@ section.hero svg.down-arrow {
   position: absolute;
   bottom: 2em;
   width: 1em;
-  animation: moveArrow 1s alternate-reverse;
+  animation: moveArrow 1s alternate-reverse infinite;
 }
 section.hero svg.down-arrow path {
   fill: white;
@@ -217,5 +217,21 @@ h1 {
   to {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
   }
 }/*# sourceMappingURL=main.css.map */

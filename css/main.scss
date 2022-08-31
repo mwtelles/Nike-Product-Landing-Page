@@ -88,7 +88,7 @@ section.hero {
         position: absolute;
         bottom: 2em;
         width: 1em;
-        animation: moveArrow 1s alternate-reverse;
+        animation: moveArrow 1s alternate-reverse infinite;
 
         path {
             fill: white;
@@ -248,5 +248,14 @@ h1 {
     }
     to {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes moveArrow {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0);
     }
 }
