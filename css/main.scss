@@ -17,10 +17,14 @@ header {
     justify-content: space-between;
 
     svg {
-        height: 2em;
+        height: 1.5em;
         width: 3em;
         margin-top: -.6em;
         cursor: pointer;
+    }
+
+    svg.close {
+        height: 3em;
     }
 }
 
@@ -61,6 +65,10 @@ nav {
     }
 }
 
+.open-nav {
+    transform: translateX(0);
+}
+
 .logo{
     fill: white;
 }
@@ -82,11 +90,13 @@ nav {
 section.hero {
     color: white;
     height: 90vh;
+    animation: moveDown 1s ease-in-out forwards; ;
+    opacity: 0;
 
     svg.down-arrow {
         stroke: white;
         position: absolute;
-        bottom: 2em;
+        bottom: 6em;
         width: 1em;
         animation: moveArrow 1s alternate-reverse infinite;
 
@@ -131,6 +141,7 @@ h1 {
     body {
         margin: 1.5em 5em;
     }
+
 
 }
 
@@ -189,6 +200,7 @@ h1 {
         svg.down-arrow {
             stroke: black;
             position: unset;
+            margin-top: 3em;
 
             path {
                 fill: black;
@@ -207,14 +219,14 @@ h1 {
         }
 
         .content {
-            text-align: left;
+            text-align: right;
             width: 25em;
         }
     }
 
     .feature.left {
         grid-template-areas: 
-        "left right";
+            "left right";
 
         img {
             grid-area: left;
@@ -226,7 +238,6 @@ h1 {
             justify-self: left;
         }
     }
-
 }
 
 @media only screen and (min-width: 1200px) {
@@ -257,5 +268,15 @@ h1 {
     }
     to {
         transform: translateY(0);
+    }
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
