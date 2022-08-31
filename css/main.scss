@@ -76,17 +76,19 @@ nav {
     width: 100%;
     height: 100vh;
     z-index: -1;
+    animation: introLoad 2s forwards
 }
 
 section.hero {
     color: white;
     height: 90vh;
 
-    svg {
+    svg.down-arrow {
         stroke: white;
         position: absolute;
         bottom: 2em;
         width: 1em;
+        animation: moveArrow 1s alternate-reverse;
 
         path {
             fill: white;
@@ -130,4 +132,121 @@ h1 {
         margin: 1.5em 5em;
     }
 
+}
+
+@media only screen and (min-width: 920px) {
+
+    .menu {
+        display: none;
+    }
+
+    nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+
+        svg.close {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+
+            a {
+                color: white;
+                padding: .5em 1.5em;
+                font-size: .9rem;
+
+                &:hover {
+                    background: none;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .hero-img {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 42em;
+    }
+
+    .logo {
+        fill: black;
+    }
+
+    section.hero {
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+
+        svg.down-arrow {
+            stroke: black;
+            position: unset;
+
+            path {
+                fill: black;
+            }
+        }
+    }
+
+    .feature {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+
+        img {
+            width: 25em;
+        }
+
+        .content {
+            text-align: left;
+            width: 25em;
+        }
+    }
+
+    .feature.left {
+        grid-template-areas: 
+        "left right";
+
+        img {
+            grid-area: left;
+        }
+
+        .content {
+            text-align: left;
+            width: 25em;
+            justify-self: left;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .feature {
+        gap: 0;
+    }
+
+}
+
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
